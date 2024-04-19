@@ -3,15 +3,13 @@ mayor = 0
 producto = 1
 suma = 0
 for i in range (1,7):
-    num1 = float(input("ingrese el numero"))
+    num1 = float(input("ingrese el numero: "))
     suma = suma + num1
     producto = producto * num1
     if num1 > mayor:
         mayor = num1
     elif num1 < menor :
         menor = num1
-print(menor)
-print(mayor)
 rango = mayor - menor
 media = suma/6
 print(producto)
