@@ -1,0 +1,28 @@
+{
+    "pacientes": [
+        {
+            "cedula": 1,
+            "nombre": "juan",
+            "genero": "nose",
+            "edad": 15
+        },
+        {
+            "cedula": 2,
+            "nombre": "juan",
+            "genero": "hombre",
+            "edad": 26
+        },
+        {
+            "cedula": 3,
+            "nombre": "juan",
+            "genero": "hola",
+            "edad": 60
+        },
+        {
+            "cedula": 5,
+            "nombre": "565",
+            "genero": "46",
+            "edad": 23
+        }
+    ]
+}
