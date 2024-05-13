@@ -23,6 +23,48 @@
             "nombre": "565",
             "genero": "46",
             "edad": 23
+        },
+        {
+            "cedula": 4,
+            "nombre": "juan",
+            "genero": "hombre",
+            "edad": 18
+        },
+        {
+            "cedula": 6,
+            "nombre": "juan",
+            "genero": "hombre",
+            "edad": 10
+        },
+        {
+            "cedula": 77,
+            "nombre": "juan",
+            "genero": "hombre",
+            "edad": 13
+        },
+        {
+            "cedula": 88,
+            "nombre": "juan",
+            "genero": "hombre",
+            "edad": 30,
+            "altura": 60,
+            "peso": 20
+        },
+        {
+            "cedula": 33,
+            "nombre": "juanaaa",
+            "genero": "mujer",
+            "edad": 12,
+            "altura": 61,
+            "peso": 3
+        },
+        {
+            "cedula": 999,
+            "nombre": "hola",
+            "genero": "hombre",
+            "edad": 27,
+            "altura": 80,
+            "peso": 21
         }
     ]
 }

@@ -1,10 +1,12 @@
 import json
 
-with open("c:/Users/ADMIN/OneDrive/Documentos/Univesidad/Fundamentos_Udi/Proyecto/inicio.json", "r") as file:
+with open("Proyecto/inicio.json", "r") as file:
     inicio = json.load(file)
 
-with open("c:/Users/ADMIN/OneDrive/Documentos/Univesidad/Fundamentos_Udi/Proyecto/pacientes.json", "r") as file:
+with open("Proyecto/pacientes.json", "r") as file:
     pacientes = json.load(file)
+
+sentinela = True
 
 """ while True:
     usuario = input("ingrese el usuario: ")
@@ -36,20 +38,32 @@ while True:
                             if cedula_existente == False:
                                 nombre = input("ingrese el nombre del paciente: ")
                                 genero = input("ingrese el genero del paciente: ")
-                                while True:
+                                while sentinela:
                                     edad = int(input("ingrese el edad del paciente: "))
-                                    if edad >= 1 :   
-                                        nuevo_paciente = {
-                                            "cedula": cedula,
-                                            "nombre": nombre,
-                                            "genero": genero,
-                                            "edad": edad
-                                        }
-                                        pacientes["pacientes"].append(nuevo_paciente)
-                                        with open("c:/Users/ADMIN/OneDrive/Documentos/Univesidad/Fundamentos_Udi/Proyecto/pacientes.json", "w") as file:
-                                            json.dump(pacientes, file)
-                                        print("Gracias por su informacion")
-                                        break
+                                    if edad >= 1:
+                                        while sentinela:   
+                                            altura = int(input("Ingrese su altura (centimetros): "))
+                                            if altura >= 60:
+                                                while sentinela:
+                                                    peso = int(input("Ingrese su peso (kilogramos): "))
+                                                    if peso >= 1:
+                                                        nuevo_paciente = {
+                                                            "cedula": cedula,
+                                                            "nombre": nombre,
+                                                            "genero": genero,
+                                                            "edad": edad,
+                                                            "altura": altura,
+                                                            "peso": peso
+                                                        }
+                                                        pacientes["pacientes"].append(nuevo_paciente)
+                                                        with open("Proyecto/pacientes.json", "w") as file:
+                                                            json.dump(pacientes, file)
+                                                        print("Gracias por su informacion")
+                                                        sentinela = False
+                                                    else:
+                                                        print("ingrese un peso coerente")
+                                            else:
+                                                print("ingrese una altura coerente")
                                     else:
                                         print("la edad no puedo ser negativa")
                                 break
