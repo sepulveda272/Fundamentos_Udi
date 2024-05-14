@@ -65,6 +65,16 @@
             "edad": 27,
             "altura": 80,
             "peso": 21
+        },
+        {
+            "cedula": 25,
+            "nombre": "juan",
+            "genero": "Hombre",
+            "edad": 13,
+            "altura": 174,
+            "peso": 59,
+            "IMC": 19.5,
+            "visita": 1
         }
     ]
 }
