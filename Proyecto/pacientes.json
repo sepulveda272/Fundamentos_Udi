@@ -75,6 +75,25 @@
             "peso": 59,
             "IMC": 19.5,
             "visita": 1
+        },
+        {
+            "cedula": 124,
+            "nombre": "juan",
+            "genero": "Hombre",
+            "edad": 19,
+            "altura": [
+                174
+            ],
+            "peso": [
+                59
+            ],
+            "IMC": [
+                19.5
+            ],
+            "visita": 1,
+            "categoria": [
+                "categoria"
+            ]
         }
     ]
 }

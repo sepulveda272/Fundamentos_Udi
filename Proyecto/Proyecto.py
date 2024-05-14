@@ -72,10 +72,11 @@ while True:
                                                                                             "nombre": nombre,
                                                                                             "genero": genero,
                                                                                             "edad": edad,
-                                                                                            "altura": altura,
-                                                                                            "peso": peso,
-                                                                                            "IMC": imc,
-                                                                                            "visita": visitas
+                                                                                            "altura": [altura],
+                                                                                            "peso": [peso],
+                                                                                            "IMC": [imc],
+                                                                                            "visita": visitas,
+                                                                                            "categoria": ["categoria"]
                                                                                         }
                                                                                         pacientes["pacientes"].append(nuevo_paciente)
                                                                                         with open("Proyecto/pacientes.json", "w") as file:
