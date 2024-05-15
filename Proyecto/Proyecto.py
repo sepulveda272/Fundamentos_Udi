@@ -119,8 +119,22 @@ while True:
                             except ValueError:
                                 print("Por favor, ingrese lo que le pide.")
                     elif menuPacientes == 2:
-                        
-                        print("hola")
+                        while True:
+                            try:
+                                edit = int(input("Ingrese la cedula del paciente que desea editar: "))
+                                edit_true = False
+                                for paciente in pacientes["pacientes"]:
+                                    if paciente["cedula"] == edit:
+                                        hola = paciente
+                                        edit_true = True
+                                if edit_true == True:
+                                    for k, v in hola.items():
+                                        print(f"{k}: {v}")
+                                    break
+                                else:
+                                    print("No existe ese paciente que busca")
+                            except ValueError:
+                                print("Ingrese lo que le pide")
                     elif menuPacientes == 3:
                         
                         print("hola")

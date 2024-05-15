@@ -94,6 +94,25 @@
             "categoria": [
                 "categoria"
             ]
+        },
+        {
+            "cedula": 20,
+            "nombre": "Yeison",
+            "genero": "Mujer",
+            "edad": 19,
+            "altura": [
+                170
+            ],
+            "peso": [
+                64
+            ],
+            "IMC": [
+                22.1
+            ],
+            "visita": 1,
+            "categoria": [
+                "Normal"
+            ]
         }
     ]
 }
