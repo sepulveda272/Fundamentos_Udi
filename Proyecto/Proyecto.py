@@ -67,6 +67,20 @@ while True:
                                                                                         imc = round(imc,1)
 
                                                                                         visitas = 1
+
+                                                                                        if imc < 18.5:
+                                                                                            categoria = "Bajo peso"
+                                                                                            print(categoria)
+                                                                                        elif 18.5 <= imc < 25:
+                                                                                            categoria = "Normal"
+                                                                                            print(categoria)
+                                                                                        elif 25 <= imc < 30:
+                                                                                            categoria = "Sobrepeso"
+                                                                                            print(categoria)
+                                                                                        else:
+                                                                                            categoria = "Obesidad"
+                                                                                            print(categoria)
+
                                                                                         nuevo_paciente = {
                                                                                             "cedula": cedula,
                                                                                             "nombre": nombre,
@@ -76,7 +90,7 @@ while True:
                                                                                             "peso": [peso],
                                                                                             "IMC": [imc],
                                                                                             "visita": visitas,
-                                                                                            "categoria": ["categoria"]
+                                                                                            "categoria": [categoria]
                                                                                         }
                                                                                         pacientes["pacientes"].append(nuevo_paciente)
                                                                                         with open("Proyecto/pacientes.json", "w") as file:
