@@ -119,7 +119,8 @@ while True:
                             except ValueError:
                                 print("Por favor, ingrese lo que le pide.")
                     elif menuPacientes == 2:
-                        while True:
+                        senti = True
+                        while senti:
                             try:
                                 edit = int(input("Ingrese la cedula del paciente que desea editar: "))
                                 edit_true = False
@@ -131,11 +132,46 @@ while True:
                                     for k, v in hola.items():
                                         print(f"{k}: {v}")
 
-                                    editarDato = input("¿Qué campo desea cambiar? (nombre, genero, edad): ").lower()
-                                    if editarDato in hola:
+                                    while senti:
+                                        editarDato = input("¿Qué campo desea cambiar? (nombre, genero, edad, altura, peso): ").lower()
+                                        if editarDato not in hola:
+                                            print("Campo inválido. Por favor, seleccione un campo válido.")
+                                            continue
+                                        
                                         nuevoDato = input(f"Ingrese el nuevo valor para {editarDato}: ")
 
-                                    break
+                                        if editarDato in ["edad", "altura", "peso"]:
+                                            try:
+                                                nuevoDato = int(nuevoDato)
+                                                if editarDato == "edad" and nuevoDato < 1:
+                                                    print("La edad no puede ser negativa. Inténtelo de nuevo.")
+                                                    continue
+                                                if editarDato == "altura" and nuevoDato < 60:
+                                                    print("Ingrese una altura coherente. Inténtelo de nuevo.")
+                                                    continue
+                                                if editarDato == "peso" and nuevoDato < 1:
+                                                    print("Ingrese un peso coherente. Inténtelo de nuevo.")
+                                                    continue
+                                            except ValueError:
+                                                print("Por favor, ingrese un valor numérico válido.")
+                                                continue
+                                        
+                                        hola[editarDato] = nuevoDato
+                                        
+                                        # para poder editar el peso o altura y me actualize el valor del imc
+                                        
+                                        """ if editarDato in ["peso", "altura"]:
+                                            peso = hola.get("peso", 0)
+                                            altura = hola.get("altura", 0)
+                                            if peso > 0 or altura > 0:
+                                                imc = peso / ((altura / 100) ** 2)
+                                                hola["imc"] = imc """
+
+                                        with open("Proyecto/pacientes.json", "w") as file:
+                                            json.dump(pacientes, file)
+
+                                        print(f"El campo {editarDato} ha sido actualizado a {nuevoDato}.")
+                                        senti= False
                                 else:
                                     print("No existe ese paciente que busca")
                             except ValueError:
@@ -156,66 +192,3 @@ while True:
             print("Opción no válida. Por favor, ingrese 0 o 1.")
     except ValueError:
         print("Por favor, ingrese solo números.")
-
-
-# cosa que em puede ayudar para continuar en la clase
-
-        """ import json
-
-# Cargar datos existentes desde el archivo JSON
-with open("Proyecto/pacientes.json", "r") as file:
-    pacientes = json.load(file)
-
-def editar_paciente(pacientes):
-    while True:
-        try:
-            edit = int(input("Ingrese la cédula del paciente que desea editar: "))
-            edit_true = False
-            for paciente in pacientes["pacientes"]:
-                if paciente["cedula"] == edit:
-                    paciente_a_editar = paciente
-                    edit_true = True
-                    break
-
-            if edit_true:
-                print("Paciente encontrado:")
-                for k, v in paciente_a_editar.items():
-                    print(f"{k}: {v}")
-
-                campo_a_cambiar = input("¿Qué campo desea cambiar? (nombre, genero, edad, altura, peso): ").lower()
-                if campo_a_cambiar in paciente_a_editar:
-                    nuevo_valor = input(f"Ingrese el nuevo valor para {campo_a_cambiar}: ")
-
-                    if campo_a_cambiar in ["edad", "altura", "peso"]:
-                        try:
-                            nuevo_valor = int(nuevo_valor)
-                            if campo_a_cambiar == "edad" and nuevo_valor < 1:
-                                print("La edad no puede ser negativa. Inténtelo de nuevo.")
-                                continue
-                            if campo_a_cambiar == "altura" and nuevo_valor < 60:
-                                print("Ingrese una altura coherente. Inténtelo de nuevo.")
-                                continue
-                            if campo_a_cambiar == "peso" and nuevo_valor < 1:
-                                print("Ingrese un peso coherente. Inténtelo de nuevo.")
-                                continue
-                        except ValueError:
-                            print("Por favor, ingrese un valor numérico válido.")
-                            continue
-
-                    paciente_a_editar[campo_a_cambiar] = nuevo_valor
-
-                    with open("Proyecto/pacientes.json", "w") as file:
-                        json.dump(pacientes, file)
-
-                    print(f"El campo {campo_a_cambiar} ha sido actualizado a {nuevo_valor}.")
-                    break
-                else:
-                    print("Campo no válido. Inténtelo de nuevo.")
-            else:
-                print("No existe ese paciente que busca.")
-        except ValueError:
-            print("Por favor, ingrese un número válido.")
-
-# Llamada a la función para editar un paciente
-editar_paciente(pacientes)
- """
