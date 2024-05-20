@@ -23,7 +23,7 @@ def eliminar_registro(paciente, indice):
         paciente["categoria"].pop(indice)
         return True
     else:
-        print("No se puede eliminar el último registro.")
+        print("\033[91mNo se puede eliminar el último registro.\033[0m")
         return False
 
 """ while True:
@@ -34,7 +34,7 @@ def eliminar_registro(paciente, indice):
         print("INGRESO EXITOSO")
         break
     else:
-        print("Usuario o password incorrecto: ") """
+        print("\033[91mUsuario o password incorrecto: \033[0m") """
 
 while True:
     print("Buenos dias que decea hacer: \n 1.Paciente \n 2.Deportes \n 3.Alimentacion \n 4.Enfermedades \n 0.salir")
@@ -116,7 +116,8 @@ while True:
                                                                                         print("Gracias por su informacion")
                                                                                         sentinela = False
                                                                                     else:
-                                                                                        print("ingrese un peso coerente")
+                                                                                        print("\033[91mingrese un peso coerente\033[0m")
+                                                                                        print("")
                                                                                 except ValueError:
                                                                                     print("Por favor, ingrese solo números.")
                                                                         else:
@@ -297,35 +298,37 @@ while True:
                             except ValueError:
                                 print("Por favor, ingrese un número válido.")
                     elif menuPacientes == 4:
-                        try:
-                            cedula = int(input("Ingrese la cédula del paciente cuyos registros desea eliminar: "))
-                            paciente_encontrado = False
-                            for paciente in pacientes["pacientes"]:
-                                if paciente["cedula"] == cedula:
-                                    paciente_encontrado = True
-                                    while True:
-                                        mostrar_registros(paciente)
-                                        try:
-                                            seleccion = int(input("Ingrese el número del registro que desea eliminar (0 para salir): "))
-                                            if seleccion == 0:
-                                                break
-                                            if 1 <= seleccion <= len(paciente["altura"]):
-                                                if eliminar_registro(paciente, seleccion - 1):
-                                                    with open("Proyecto/pacientes.json", "w") as file:
-                                                        json.dump(pacientes, file, indent=4)
-                                                    print("Registro eliminado exitosamente.")
+                        senti = True
+                        while senti:
+                            try:
+                                cedula = int(input("Ingrese la cédula del paciente cuyos registros desea eliminar: "))
+                                paciente_encontrado = False
+                                for paciente in pacientes["pacientes"]:
+                                    if paciente["cedula"] == cedula:
+                                        paciente_encontrado = True
+                                        while senti:
+                                            mostrar_registros(paciente)
+                                            try:
+                                                seleccion = int(input("Ingrese el número del registro que desea eliminar (0 para salir): "))
+                                                if seleccion == 0:
+                                                    senti = False
+                                                if 1 <= seleccion <= len(paciente["altura"]):
+                                                    if eliminar_registro(paciente, seleccion - 1):
+                                                        with open("Proyecto/pacientes.json", "w") as file:
+                                                            json.dump(pacientes, file, indent=4)
+                                                        print("Registro eliminado exitosamente.")
+                                                    else:
+                                                        print(" ")
                                                 else:
-                                                    print("No se puede eliminar el último registro.")
-                                            else:
-                                                print("Selección no válida.")
-                                        except ValueError:
-                                            print("Por favor, ingrese un número válido.")
-                                    break
-                            if not paciente_encontrado:
-                                print("Paciente no encontrado.")
-                        except ValueError:
-                            print("Por favor, ingrese una cédula válida.")
-                        print("en proceso")
+                                                    print("Selección no válida.")
+                                            except ValueError:
+                                                print("Por favor, ingrese un número válido.")
+                                        break
+                                if not paciente_encontrado:
+                                    print("Paciente no encontrado.")
+                            except ValueError:
+                                print("Por favor, ingrese una cédula válida.")
+                            print("en proceso")
 
                         # me falta mirar unas cosas
 
@@ -334,13 +337,13 @@ while True:
                     elif menuPacientes == 6:
                         break
                     else:
-                        print("Opción no válida. Por favor, ingrese un número del 1 al 4.")
+                        print("Opción no válida. Por favor, ingrese un número del 1 al 6.")
                 except ValueError:
                     print("Por favor, ingrese solo números.")
         elif op == 0:
             print("Hasta luego, vuelva pronto")
             break
         else:
-            print("Opción no válida. Por favor, ingrese 0 o 1.")
+            print("Opción no válida. Por favor, ingrese 0 o 4.")
     except ValueError:
         print("Por favor, ingrese solo números.")

@@ -18,6 +18,25 @@
             "categoria": [
                 "Normal"
             ]
+        },
+        {
+            "cedula": 12345678,
+            "nombre": "maria",
+            "genero": "Mujer",
+            "edad": 20,
+            "altura": [
+                172
+            ],
+            "peso": [
+                55
+            ],
+            "IMC": [
+                18.6
+            ],
+            "visitas": 3,
+            "categoria": [
+                "Normal"
+            ]
         }
     ],
     "deportes": [],
