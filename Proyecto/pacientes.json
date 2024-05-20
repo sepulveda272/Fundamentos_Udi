@@ -1,1 +1,26 @@
-{"pacientes": [{"cedula": 25, "nombre": "juan", "genero": "Hombre", "edad": 13, "altura": 174, "peso": 59, "IMC": 19.5, "visita": 1}, {"cedula": 124, "nombre": "juan", "genero": "Hombre", "edad": 19, "altura": [174], "peso": [59], "IMC": [19.5], "visita": 1, "categoria": ["categoria"]}, {"cedula": 20, "nombre": "yeison", "genero": "Mujer", "edad": 2234, "altura": 170, "peso": [64], "IMC": [22.1], "visita": 1, "categoria": ["Normal"]}, {"cedula": 12, "nombre": "juan", "genero": "Mujer", "edad": 1000, "altura": [200], "peso": [800], "IMC": [200.0], "visita": 1, "categoria": ["Obesidad"]}, {"cedula": 90, "nombre": "nikoll", "genero": "Mujer", "edad": 17, "altura": 168, "peso": [57], "IMC": [20.9], "visita": 1, "categoria": ["Normal"]}, {"cedula": 10215212, "nombre": "by", "genero": "Mujer", "edad": 233, "altura": [9000], "peso": [12], "IMC": [0.0], "visita": 1, "categoria": ["Bajo peso"]}]}
+{
+    "pacientes": [
+        {
+            "cedula": 123,
+            "nombre": "juan",
+            "genero": "Hombre",
+            "edad": 19,
+            "altura": [
+                174
+            ],
+            "peso": [
+                59
+            ],
+            "IMC": [
+                19.5
+            ],
+            "visitas": 3,
+            "categoria": [
+                "Normal"
+            ]
+        }
+    ],
+    "deportes": [],
+    "alimentacion": [],
+    "enfermedades": []
+}
