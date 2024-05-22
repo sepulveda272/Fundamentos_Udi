@@ -6,6 +6,9 @@ with open("Proyecto/inicio.json", "r") as file:
 with open("Proyecto/pacientes.json", "r") as file:
     pacientes = json.load(file)
 
+with open("Proyecto/deportes.json", "r") as file:
+    deportes = json.load(file)
+
 sentinela = True
 
 # Función para mostrar los registros de un paciente
@@ -340,6 +343,22 @@ while True:
                         print("Opción no válida. Por favor, ingrese un número del 1 al 6.")
                 except ValueError:
                     print("Por favor, ingrese solo números.")
+        elif op == 2:
+            sentin = True
+            while True:
+                print("Que decea realizar: \n 1.Registrar nuevo Deporte \n 2.Editar Info de un Deporte \n 3.Eliminar Deportes \n 4.Mostrar los Deportes registrados \n 5.Volver al menu anterios")
+                try:
+                    menuDeportes = int(input("Ingrese una opcion: "))
+                    if menuDeportes == 1:
+                        while sentin:
+                            
+                            print("hola")
+                    elif menuDeportes == 5:
+                        break
+                    else:
+                        print("Opción no válida. Por favor, ingrese un número del 1 al 5.")
+                except ValueError:
+                    print("Ingrese solo numeros")
         elif op == 0:
             print("Hasta luego, vuelva pronto")
             break

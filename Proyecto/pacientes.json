@@ -6,17 +6,17 @@
             "genero": "Hombre",
             "edad": 19,
             "altura": [
-                174
+                200
             ],
             "peso": [
-                59
+                60
             ],
             "IMC": [
-                19.5
+                15.0
             ],
-            "visitas": 3,
+            "visitas": 4,
             "categoria": [
-                "Normal"
+                "Bajo peso"
             ]
         },
         {
@@ -37,9 +37,27 @@
             "categoria": [
                 "Normal"
             ]
+        },
+        {
+            "cedula": 1235689742,
+            "nombre": "brayan",
+            "genero": "Hombre",
+            "edad": 24,
+            "altura": [
+                150
+            ],
+            "peso": [
+                100
+            ],
+            "IMC": [
+                44.4
+            ],
+            "visitas": 2,
+            "categoria": [
+                "Obesidad"
+            ]
         }
     ],
-    "deportes": [],
     "alimentacion": [],
     "enfermedades": []
 }
