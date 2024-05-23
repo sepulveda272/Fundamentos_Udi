@@ -1,5 +1,9 @@
 {
     "deportes": [
-        
+        {
+            "nombre": "prueba",
+            "frecuencia": "nose",
+            "categoria": "Normal"
+        }
     ]
 }
