@@ -82,7 +82,7 @@ while True:
                                                     while sentinela:
                                                         try:
                                                             edad = int(input("ingrese el edad del paciente: "))
-                                                            if edad >= 1:
+                                                            if edad >= 1 or edad < 150:
                                                                 while sentinela:
                                                                     try:   
                                                                         altura = int(input("Ingrese su altura (centimetros): "))
@@ -104,18 +104,49 @@ while True:
 
                                                                                         visitas = 1
 
-                                                                                        if imc < 18.5:
-                                                                                            categoria = "Bajo peso"
-                                                                                            print(categoria)
-                                                                                        elif 18.5 <= imc < 25:
-                                                                                            categoria = "Normal"
-                                                                                            print(categoria)
-                                                                                        elif 25 <= imc < 30:
-                                                                                            categoria = "Sobrepeso"
-                                                                                            print(categoria)
-                                                                                        else:
-                                                                                            categoria = "Obesidad"
-                                                                                            print(categoria)
+                                                                                        if edad < 2:
+                                                                                            print("El IMC para niños menores de 2 años no se calcula de la misma manera.")
+                                                                                            print("Por favor, consulte a un profesional de la salud.")
+                                                                                            categoria = "Sin categoría"
+                                                                                        if 2 <= edad < 6:
+                                                                                            if imc < 14:
+                                                                                                categoria = "Bajo peso"
+                                                                                            elif 14 <= imc < 18:
+                                                                                                categoria = "Normal"
+                                                                                            elif 18 <= imc < 21:
+                                                                                                categoria = "Sobrepeso"
+                                                                                            else:
+                                                                                                categoria = "Obesidad"
+                                                                                        elif 6 <= edad < 11:
+                                                                                            if imc < 13:
+                                                                                                categoria = "Bajo peso"
+                                                                                            elif 13 <= imc < 18:
+                                                                                                categoria = "Normal"
+                                                                                            elif 18 <= imc < 21:
+                                                                                                categoria = "Sobrepeso"
+                                                                                            else:
+                                                                                                categoria = "Obesidad"
+                                                                                        elif 18 > edad >= 11:
+                                                                                            if imc < 15:
+                                                                                                categoria = "Bajo peso"
+                                                                                            elif 15 <= imc < 20:
+                                                                                                categoria = "Normal"
+                                                                                            elif 20 <= imc < 25:
+                                                                                                categoria = "Sobrepeso"
+                                                                                            else:
+                                                                                                categoria = "Obesidad"
+                                                                                        elif edad >= 18:
+                                                                                            if imc < 18.5:
+                                                                                                categoria = "Bajo peso"
+                                                                                            elif 18.5 <= imc < 25:
+                                                                                                categoria = "Normal"
+                                                                                            elif 25 <= imc < 30:
+                                                                                                categoria = "Sobrepeso"
+                                                                                            else:
+                                                                                                categoria = "Obesidad"
+                                                                                        
+                                                                                        print("IMC:", imc)
+                                                                                        print("Categoría:", categoria)
 
                                                                                         nuevo_paciente = {
                                                                                             "cedula": cedula,
@@ -180,7 +211,7 @@ while True:
                                         if editarDato in ["edad", "altura", "peso"]:
                                             try:
                                                 nuevoDato = int(nuevoDato)
-                                                if editarDato == "edad" and nuevoDato < 1:
+                                                if editarDato == "edad" and 150 > nuevoDato > 1:
                                                     print("La edad no puede ser negativa. Inténtelo de nuevo.")
                                                     continue
                                                 if editarDato == "altura" and nuevoDato < 60:
@@ -211,14 +242,48 @@ while True:
                                                 hola["IMC"].append(imc)
                         
                                             # Determinar la nueva categoría y reemplazar el último valor en la lista de categorías
-                                            if imc < 18.5:
-                                                categoria = "Bajo peso"
-                                            elif 18.5 <= imc < 25:
-                                                categoria = "Normal"
-                                            elif 25 <= imc < 30:
-                                                categoria = "Sobrepeso"
-                                            else:
-                                                categoria = "Obesidad"
+                                            edad = hola["edad"]
+
+                                            if edad < 2:
+                                                print("El IMC para niños menores de 2 años no se calcula de la misma manera.")
+                                                print("Por favor, consulte a un profesional de la salud.")
+                                                categoria = "Sin categoría"
+                                            if 2 <= edad < 6:
+                                                if imc < 14:
+                                                    categoria = "Bajo peso"
+                                                elif 14 <= imc < 18:
+                                                    categoria = "Normal"
+                                                elif 18 <= imc < 21:
+                                                    categoria = "Sobrepeso"
+                                                else:
+                                                    categoria = "Obesidad"
+                                            elif 6 <= edad < 11:
+                                                if imc < 13:
+                                                    categoria = "Bajo peso"
+                                                elif 13 <= imc < 18:
+                                                    categoria = "Normal"
+                                                elif 18 <= imc < 21:
+                                                    categoria = "Sobrepeso"
+                                                else:
+                                                    categoria = "Obesidad"
+                                            elif 18 > edad >= 11:
+                                                if imc < 15:
+                                                    categoria = "Bajo peso"
+                                                elif 15 <= imc < 20:
+                                                    categoria = "Normal"
+                                                elif 20 <= imc < 25:
+                                                    categoria = "Sobrepeso"
+                                                else:
+                                                    categoria = "Obesidad"
+                                            elif edad >= 18:
+                                                if imc < 18.5:
+                                                    categoria = "Bajo peso"
+                                                elif 18.5 <= imc < 25:
+                                                    categoria = "Normal"
+                                                elif 25 <= imc < 30:
+                                                    categoria = "Sobrepeso"
+                                                else:
+                                                    categoria = "Obesidad"
                         
                                             if len(hola["categoria"]) > 0:
                                                 hola["categoria"][-1] = categoria
@@ -280,14 +345,48 @@ while True:
                                                 nuevoRegistro["IMC"] = [nuevoRegistro["IMC"]]
                                             nuevoRegistro["IMC"].append(imc)
                     
-                                            if imc < 18.5:
-                                                categoria = "Bajo peso"
-                                            elif 18.5 <= imc < 25:
-                                                categoria = "Normal"
-                                            elif 25 <= imc < 30:
-                                                categoria = "Sobrepeso"
-                                            else:
-                                                categoria = "Obesidad"
+                                            edad = nuevoRegistro["edad"]
+
+                                            if edad < 2:
+                                                print("El IMC para niños menores de 2 años no se calcula de la misma manera.")
+                                                print("Por favor, consulte a un profesional de la salud.")
+                                                categoria = "Sin categoría"
+                                            if 2 <= edad < 6:
+                                                if imc < 14:
+                                                    categoria = "Bajo peso"
+                                                elif 14 <= imc < 18:
+                                                    categoria = "Normal"
+                                                elif 18 <= imc < 21:
+                                                    categoria = "Sobrepeso"
+                                                else:
+                                                    categoria = "Obesidad"
+                                            elif 6 <= edad < 11:
+                                                if imc < 13:
+                                                    categoria = "Bajo peso"
+                                                elif 13 <= imc < 18:
+                                                    categoria = "Normal"
+                                                elif 18 <= imc < 21:
+                                                    categoria = "Sobrepeso"
+                                                else:
+                                                    categoria = "Obesidad"
+                                            elif 18 > edad >= 11:
+                                                if imc < 15:
+                                                    categoria = "Bajo peso"
+                                                elif 15 <= imc < 20:
+                                                    categoria = "Normal"
+                                                elif 20 <= imc < 25:
+                                                    categoria = "Sobrepeso"
+                                                else:
+                                                    categoria = "Obesidad"
+                                            elif edad >= 18:
+                                                if imc < 18.5:
+                                                    categoria = "Bajo peso"
+                                                elif 18.5 <= imc < 25:
+                                                    categoria = "Normal"
+                                                elif 25 <= imc < 30:
+                                                    categoria = "Sobrepeso"
+                                                else:
+                                                    categoria = "Obesidad"
                     
                                             if not isinstance(nuevoRegistro["categoria"], list):
                                                 nuevoRegistro["categoria"] = [nuevoRegistro["categoria"]]
@@ -402,7 +501,6 @@ while True:
                             if nombre.strip() and all(caracter.isalpha() or caracter.isspace() for caracter in nombre):
                                 while sentin:
                                     frecuencia = input("ingrese la frecuencia que debe realizar: ")
-                                    
                                     while sentin:
                                         try:
                                             categoria = input("ingrese la categiria que lo tiene que hacer (Bajo peso, Normal, Sobrepeso, Obesidad): ")
