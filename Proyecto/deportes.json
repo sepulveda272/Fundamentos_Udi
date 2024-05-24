@@ -4,6 +4,11 @@
             "nombre": "prueba",
             "frecuencia": "nose",
             "categoria": "Normal"
+        },
+        {
+            "nombre": "futbol",
+            "frecuencia": "2 veces por semana",
+            "categoria": "Sobrepeso"
         }
     ]
 }

@@ -25,15 +25,15 @@
             "genero": "Mujer",
             "edad": 20,
             "altura": [
-                172
+                170
             ],
             "peso": [
-                55
+                60
             ],
             "IMC": [
-                18.6
+                20.8
             ],
-            "visitas": 3,
+            "visitas": 4,
             "categoria": [
                 "Normal"
             ]

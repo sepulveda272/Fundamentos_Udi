@@ -402,28 +402,27 @@ while True:
                             if nombre.strip() and all(caracter.isalpha() or caracter.isspace() for caracter in nombre):
                                 while sentin:
                                     frecuencia = input("ingrese la frecuencia que debe realizar: ")
-                                    if frecuencia.strip() and all(caracter.isalpha() or caracter.isspace() for caracter in frecuencia):
-                                        while sentin:
-                                            try:
-                                                categoria = input("ingrese la categiria que lo tiene que hacer (Bajo peso, Normal, Sobrepeso, Obesidad): ")
-                                                if categoria == "Bajo peso" or categoria == "Normal" or categoria == "Sobrepeso" or categoria == "Obesidad":
-                                                    nuevoDeporte = {
-                                                        "nombre": nombre,
-                                                        "frecuencia": frecuencia,
-                                                        "categoria": categoria
-                                                    }
-                                                    deportes["deportes"].append(nuevoDeporte)
-                                                    with open("Proyecto/deportes.json", "w") as file:
-                                                        json.dump(deportes, file)
-                                                    print("Gracias por su informacion")
-                                                    sentin = False
-                                                else:
-                                                    print("Por favor, ingrese lo que le pide.")
-                                            except ValueError:
+                                    
+                                    while sentin:
+                                        try:
+                                            categoria = input("ingrese la categiria que lo tiene que hacer (Bajo peso, Normal, Sobrepeso, Obesidad): ")
+                                            if categoria == "Bajo peso" or categoria == "Normal" or categoria == "Sobrepeso" or categoria == "Obesidad":
+                                                nuevoDeporte = {
+                                                    "nombre": nombre,
+                                                    "frecuencia": frecuencia,
+                                                    "categoria": categoria
+                                                }
+                                                deportes["deportes"].append(nuevoDeporte)
+                                                with open("Proyecto/deportes.json", "w") as file:
+                                                    json.dump(deportes, file)
+                                                print("Gracias por su informacion")
+                                                sentin = False
+                                            else:
                                                 print("Por favor, ingrese lo que le pide.")
-                                        break
-                                    else:
-                                        print("Por favor, ingrese lo que le pide.")
+                                        except ValueError:
+                                            print("Por favor, ingrese lo que le pide.")
+                                    break
+                                    
                             else:
                                 print("Por favor, no deje este campo vacio.")
                     elif menuDeportes == 2:
@@ -527,28 +526,25 @@ while True:
                             if alimento == "Granos" or alimento == "Verduras" or alimento == "Frutas" or alimento == "Lacteos" or alimento == "Proteinas":
                                 while sentin:
                                     frecuencia = input("ingrese la frecuencia que debe comer esa clase de alimento: ")
-                                    if frecuencia.strip() and all(caracter.isalpha() or caracter.isspace() for caracter in frecuencia):
-                                        while sentin:
-                                            try:
-                                                categoria = input("ingrese la categiria que lo tiene que hacer (Bajo peso, Normal, Sobrepeso, Obesidad): ")
-                                                if categoria == "Bajo peso" or categoria == "Normal" or categoria == "Sobrepeso" or categoria == "Obesidad":
-                                                    nuevaAlimentacion = {
-                                                        "alimento": alimento,
-                                                        "frecuencia": frecuencia,
-                                                        "categoria": categoria
-                                                    }
-                                                    alimentaciones["alimentaciones"].append(nuevaAlimentacion)
-                                                    with open("Proyecto/alimentaciones.json", "w") as file:
-                                                        json.dump(alimentaciones, file)
-                                                    print("Gracias por su informacion")
-                                                    sentin = False
-                                                else:
-                                                    print("Por favor, ingrese lo que le pide.")
-                                            except ValueError:
+                                    while sentin:
+                                        try:
+                                            categoria = input("ingrese la categiria que lo tiene que hacer (Bajo peso, Normal, Sobrepeso, Obesidad): ")
+                                            if categoria == "Bajo peso" or categoria == "Normal" or categoria == "Sobrepeso" or categoria == "Obesidad":
+                                                nuevaAlimentacion = {
+                                                    "alimento": alimento,
+                                                    "frecuencia": frecuencia,
+                                                    "categoria": categoria
+                                                }
+                                                alimentaciones["alimentaciones"].append(nuevaAlimentacion)
+                                                with open("Proyecto/alimentaciones.json", "w") as file:
+                                                    json.dump(alimentaciones, file)
+                                                print("Gracias por su informacion")
+                                                sentin = False
+                                            else:
                                                 print("Por favor, ingrese lo que le pide.")
-                                        break
-                                    else:
-                                        print("Por favor, ingrese lo que le pide.")
+                                        except ValueError:
+                                            print("Por favor, ingrese lo que le pide.")
+                                    break
                             else:
                                 print("Por favor, ingrese lo que le pide.")
                     elif menuAlimentacion == 2:

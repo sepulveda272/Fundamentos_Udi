@@ -1,1 +1,14 @@
-{"alimentaciones": [{"alimento": "Proteinas", "frecuencia": "nose", "categoria": "Normal"}]}
+{
+    "alimentaciones": [
+        {
+            "alimento": "Proteinas",
+            "frecuencia": "nose",
+            "categoria": "Normal"
+        },
+        {
+            "alimento": "Lacteos",
+            "frecuencia": "2 veces por semana",
+            "categoria": "Bajo peso"
+        }
+    ]
+}
