@@ -127,9 +127,10 @@ while True:
                                     visitas = 1
 
                                     if edad < 2:
-                                        categoria = "Sin categoría"
+                                        categoria = "Sin categoria"
                                         print(f"{RED}El IMC para niños menores de 2 años no se calcula de la misma manera.{RESET}")
                                         print(f"{RED}Por favor, consulte a un profesional de la salud.{RESET}")
+                                        imc = "No tiene ya que es menor a dos años"
                                     elif 2 <= edad < 6:
                                         if imc < 14:
                                             categoria = "Bajo peso"
