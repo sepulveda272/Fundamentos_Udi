@@ -1,1 +1,4 @@
-{"pacientes": [{"cedula": 12345, "nombre": "juan", "genero": "Hombre", "edad": 12, "altura": [174, 200], "peso": [59, 60], "IMC": [19.5, 15.0], "visitas": 2, "categoria": ["Normal", "Normal"]}, {"cedula": 123, "nombre": "yeison", "genero": "Hombre", "edad": 5, "altura": [174, 174], "peso": [59, 50], "IMC": [19.5, 16.5], "visitas": 2, "categoria": ["Sobrepeso", "Normal"]}, {"cedula": 1095301664, "nombre": "nicolas", "genero": "Hombre", "edad": 18, "altura": [180], "peso": [70], "IMC": [21.6], "visitas": 1, "categoria": ["Normal"]}], "enfermedades": []}
+{
+    "pacientes": [],
+    "enfermedades": []
+}
