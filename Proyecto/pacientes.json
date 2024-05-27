@@ -1,6 +1,1 @@
-{
-    "pacientes": [
-        
-    ],
-    "enfermedades": []
-}
+{"pacientes": [{"cedula": 123, "nombre": "Juan", "genero": "Hombre", "edad": 19, "altura": [175, 178], "peso": [70, 80], "IMC": [22.9, 25.2], "visitas": 3, "categoria": ["Normal", "Sobrepeso"], "fecha": ["2024-05-27 08:23:26", "2024-05-27 08:50:29"]}, {"cedula": 123456, "nombre": "Yeisom", "genero": "Hombre", "edad": 20, "altura": [200], "peso": [59], "IMC": [14.8], "visitas": 1, "categoria": ["Bajo peso"], "fecha": ["2024-05-27 08:51:55"]}, {"cedula": 1095301664, "nombre": "Nicolas", "genero": "Hombre", "edad": 18, "altura": [180], "peso": [215], "IMC": [66.4], "visitas": 1, "categoria": ["Obesidad"], "fecha": ["2024-05-27 10:13:36"]}, {"cedula": 1234, "nombre": "nombre", "genero": "Hombre", "edad": 15, "altura": [174], "peso": [59], "IMC": [19.5], "visitas": 1, "categoria": ["Normal"], "fecha": ["2024-05-27 10:30:10"]}], "enfermedades": []}
