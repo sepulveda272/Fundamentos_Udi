@@ -63,12 +63,12 @@ while True:
         print(f"{RED}Usuario o password incorrecto: {RESET}")
 
 while True:
-    print("Buenos dias que decea hacer: \n 1.Paciente \n 2.Deportes \n 3.Alimentacion \n 4.Enfermedades \n 0.salir")
+    print("Buenos dias que decea hacer: \n 1.Paciente \n 2.Deportes \n 3.Alimentacion \n 0.salir")
     try:
         op = int(input(f"{BLUE}Ingrese su opción: {RESET}"))
         if op == 1:
-            while True:
-                print("Que decea realizar: \n 1.Registrar nuevo Paciente \n 2.Editar Info de un paciente \n 3.Registar nuevos valores de una paciente ya existentes \n 4.Eliminar registros de un paciente \n 5.Mostrar recomendaciones para un paciente \n 6.Volver al menu anterios")
+            while sentinela:
+                print("Que decea realizar: \n 1.Registrar nuevo Paciente \n 2.Editar Info de un paciente \n 3.Registar nuevos valores de una paciente ya existentes \n 4.Eliminar registros de un paciente \n 5.Mostrar recomendaciones para un paciente \n 6.Mostrar registros de un paciente \n 7.Listado de pacientes \n 8.Volver al menu anterios")
                 try:
                     menuPacientes = int(input(f"{BLUE}Ingrese su opción: {RESET}"))
                     if menuPacientes == 1:
@@ -502,9 +502,55 @@ while True:
                             except ValueError:
                                 print("No deje el campo vacío")
                     elif menuPacientes == 6:
+                        senti = True
+                        while senti:
+                            try:
+                                print("Cédulas registradas con su respectivo nombre del paciente:")
+                                print("{:<15} {:<30}".format("Cédula", "Nombre"))
+                                print("-" * 45)
+                                for paciente in pacientes["pacientes"]:
+                                    print("{:<15} {:<30}".format(paciente["cedula"], paciente["nombre"]))
+                                    print("-" * 45)
+
+                                cedula = int(input("Ingrese la cédula del paciente cuyos registros desea ver (0 para salir): "))
+                                if cedula == 0:
+                                    break
+                                else:
+                                    paciente_encontrado = False
+                                    for paciente in pacientes["pacientes"]:
+                                        if paciente["cedula"] == cedula:
+                                            paciente_encontrado = True
+                                            while senti:
+                                                mostrar_registros(paciente)
+                                                break
+                                    if not paciente_encontrado:
+                                        print("Paciente no encontrado.")
+                            except ValueError:
+                                print("Por favor, ingrese una cédula válida.")
+                    elif menuPacientes == 7:
+                        print("Listado de pacientes")
+                        print("{:<15} {:<15} {:<15} {:<15} {:<15} {:<15} {:<15} {:<30}".format(
+                            "Cédula", "Nombre", "Género", "Edad", "Altura", "Peso", "IMC", "Categoría"))
+                        print("-" * 120)
+
+                        for paciente in pacientes["pacientes"]:
+                            cedula = paciente["cedula"]
+                            nombre = paciente["nombre"]
+                            genero = paciente["genero"]
+                            edad = paciente["edad"]
+                            altura = paciente["altura"][-1]
+                            peso = paciente["peso"][-1]
+                            imc = paciente["IMC"][-1]
+                            categoria = paciente["categoria"][-1]
+                            fecha = paciente["fecha"][-1]
+                            
+                            print("{:<15} {:<15} {:<15} {:<15} {:<15} {:<15} {:<15} {:<30}".format(
+                                cedula, nombre, genero, edad, altura, peso, imc, categoria, fecha))
+                            print("-" * 120)
+                    elif menuPacientes == 8:
                         break
                     else:
-                        print("Opción no válida. Por favor, ingrese un número del 1 al 6.")
+                        print("Opción no válida. Por favor, ingrese un número del 1 al 8.")
                 except ValueError:
                     print("Por favor, ingrese solo números.")
         elif op == 2:
