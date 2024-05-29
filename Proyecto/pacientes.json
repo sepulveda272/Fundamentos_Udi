@@ -1,6 +1,1 @@
-{
-    "pacientes": [
-        
-    ],
-    "enfermedades": []
-}
+{"pacientes": [{"cedula": 123, "nombre": "juan david", "genero": "Hombre", "edad": 19, "altura": [174], "peso": [60], "IMC": [19.8], "visitas": 1, "categoria": ["Normal"], "fecha": ["2024-05-28 20:33:59"]}, {"cedula": 132456, "nombre": "juan", "genero": "Hombre", "edad": 18, "altura": [150], "peso": [59], "IMC": [26.2], "visitas": 1, "categoria": ["Sobrepeso"], "fecha": ["2024-05-28 20:36:21"]}, {"cedula": 123456789, "nombre": "jdasdas", "genero": "Hombre", "edad": 59, "altura": [180], "peso": [50], "IMC": [15.4], "visitas": 1, "categoria": ["Bajo peso"], "fecha": ["2024-05-28 20:37:48"]}, {"cedula": 1546, "nombre": "juasas", "genero": "Hombre", "edad": 59, "altura": [150], "peso": [90], "IMC": [40.0], "visitas": 1, "categoria": ["Obesidad"], "fecha": ["2024-05-28 20:40:31"]}, {"cedula": 132, "nombre": "juan", "genero": "Hombre", "edad": 59, "altura": [150], "peso": [59], "IMC": [26.2], "visitas": 1, "categoria": ["Sobrepeso"], "fecha": ["2024-05-28 20:41:41"]}, {"cedula": 16579456, "nombre": "juan", "genero": "Mujer", "edad": 59, "altura": [180], "peso": [59], "IMC": [18.2], "visitas": 1, "categoria": ["Bajo peso"], "fecha": ["2024-05-28 20:42:38"]}], "enfermedades": []}

@@ -72,129 +72,130 @@ while True:
                 try:
                     menuPacientes = int(input(f"{BLUE}Ingrese su opción: {RESET}"))
                     if menuPacientes == 1:
-                        while sentinela:
+                        while True:
                             try:
                                 cedula = int(input(f"{BLUE}Ingrese la identificación del paciente: {RESET}"))
                                 cedula_existente = any(paciente["cedula"] == cedula for paciente in pacientes["pacientes"])
-
-                                if not cedula_existente:
-                                    while True:
-                                        nombre = input(f"{BLUE}Ingrese el nombre del paciente: {RESET}").strip()
-                                        if nombre and all(caracter.isalpha() or caracter.isspace() for caracter in nombre):
-                                            break
-                                        else:
-                                            print(f"{RED}Por favor, ingrese un nombre válido sin dejar el campo vacío.{RESET}")
-
-                                    while True:
-                                        genero = input(f"{BLUE}Ingrese el género del paciente (H) Hombre o (M) Mujer: {RESET}").upper().strip()
-                                        if genero in ["H", "M"]:
-                                            genero = "Hombre" if genero == "H" else "Mujer"
-                                            break
-                                        else:
-                                            print(f"{RED}Por favor, ingrese una de las opciones que se muestra (H o M).{RESET}")
-
-                                    while True:
-                                        try:
-                                            edad = int(input(f"{BLUE}Ingrese la edad del paciente: {RESET}"))
-                                            if 1 <= edad < 150:
-                                                break
-                                            else:
-                                                print(f"{RED}Por favor, ingrese una edad válida entre 1 y 149.{RESET}")
-                                        except ValueError:
-                                            print(f"{RED}Por favor, ingrese un número válido para la edad.{RESET}")
-
-                                    while True:
-                                        try:
-                                            altura = int(input(f"{BLUE}Ingrese su altura (centímetros): {RESET}"))
-                                            if altura >= 60:
-                                                break
-                                            else:
-                                                print(f"{RED}Por favor, ingrese una altura válida (mayor o igual a 60 cm).{RESET}")
-                                        except ValueError:
-                                            print(f"{RED}Por favor, ingrese un número válido para la altura.{RESET}")
-
-                                    while True:
-                                        try:
-                                            peso = int(input(f"{BLUE}Ingrese su peso (kilogramos): {RESET}"))
-                                            if peso >= 1:
-                                                break
-                                            else:
-                                                print(f"{RED}Por favor, ingrese un peso válido (mayor o igual a 1 kg).{RESET}")
-                                        except ValueError:
-                                            print(f"{RED}Por favor, ingrese un número válido para el peso.{RESET}")
-
-                                    imc = round(peso / (altura ** 2) * 10000, 1)
-                                    visitas = 1
-
-                                    if edad < 2:
-                                        categoria = "Sin categoria"
-                                        print(f"{RED}El IMC para niños menores de 2 años no se calcula de la misma manera.{RESET}")
-                                        print(f"{RED}Por favor, consulte a un profesional de la salud.{RESET}")
-                                        imc = "No tiene ya que es menor a dos años"
-                                    elif 2 <= edad < 6:
-                                        if imc < 14:
-                                            categoria = "Bajo peso"
-                                        elif 14 <= imc < 18:
-                                            categoria = "Normal"
-                                        elif 18 <= imc < 21:
-                                            categoria = "Sobrepeso"
-                                        else:
-                                            categoria = "Obesidad"
-                                    elif 6 <= edad < 11:
-                                        if imc < 13:
-                                            categoria = "Bajo peso"
-                                        elif 13 <= imc < 18:
-                                            categoria = "Normal"
-                                        elif 18 <= imc < 21:
-                                            categoria = "Sobrepeso"
-                                        else:
-                                            categoria = "Obesidad"
-                                    elif 11 <= edad < 18:
-                                        if imc < 15:
-                                            categoria = "Bajo peso"
-                                        elif 15 <= imc < 20:
-                                            categoria = "Normal"
-                                        elif 20 <= imc < 25:
-                                            categoria = "Sobrepeso"
-                                        else:
-                                            categoria = "Obesidad"
-                                    else:
-                                        if imc < 18.5:
-                                            categoria = "Bajo peso"
-                                        elif 18.5 <= imc < 25:
-                                            categoria = "Normal"
-                                        elif 25 <= imc < 30:
-                                            categoria = "Sobrepeso"
-                                        else:
-                                            categoria = "Obesidad"
-
-                                    print(f"IMC: {imc}")
-                                    print(f"Categoría: {categoria}")
-
-                                    fecha_hora_registro = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                                    nuevo_paciente = {
-                                        "cedula": cedula,
-                                        "nombre": nombre,
-                                        "genero": genero,
-                                        "edad": edad,
-                                        "altura": [altura],
-                                        "peso": [peso],
-                                        "IMC": [imc],
-                                        "visitas": visitas,
-                                        "categoria": [categoria],
-                                        "fecha": [fecha_hora_registro]
-                                    }
-
-                                    pacientes["pacientes"].append(nuevo_paciente)
-                                    with open("Proyecto/pacientes.json", "w") as file:
-                                        json.dump(pacientes, file)
-
-                                    print(f"{GREEN}Gracias por su información. {RESET}")
-                                    sentinela = False
-                                else:
-                                    print(f"{RED}La cédula ingresada ya está registrada. Inténtelo de nuevo.{RESET}")
+                                break
                             except ValueError:
                                 print(f"{RED}La cédula ingresada ya está registrada. Inténtelo de nuevo.{RESET}")
+                                
+                        if not cedula_existente:
+                            while True:
+                                nombre = input(f"{BLUE}Ingrese el nombre del paciente: {RESET}").strip()
+                                if nombre and all(caracter.isalpha() or caracter.isspace() for caracter in nombre):
+                                    break
+                                else:
+                                    print(f"{RED}Por favor, ingrese un nombre válido sin dejar el campo vacío.{RESET}")
+
+                            while True:
+                                genero = input(f"{BLUE}Ingrese el género del paciente (H) Hombre o (M) Mujer: {RESET}").upper().strip()
+                                if genero in ["H", "M"]:
+                                    genero = "Hombre" if genero == "H" else "Mujer"
+                                    break
+                                else:
+                                    print(f"{RED}Por favor, ingrese una de las opciones que se muestra (H o M).{RESET}")
+
+                            while True:
+                                try:
+                                    edad = int(input(f"{BLUE}Ingrese la edad del paciente: {RESET}"))
+                                    if 1 <= edad < 150:
+                                        break
+                                    else:
+                                        print(f"{RED}Por favor, ingrese una edad válida entre 1 y 149.{RESET}")
+                                except ValueError:
+                                    print(f"{RED}Por favor, ingrese un número válido para la edad.{RESET}")
+
+                            while True:
+                                try:
+                                    altura = int(input(f"{BLUE}Ingrese su altura (centímetros): {RESET}"))
+                                    if altura >= 60:
+                                        break
+                                    else:
+                                        print(f"{RED}Por favor, ingrese una altura válida (mayor o igual a 60 cm).{RESET}")
+                                except ValueError:
+                                    print(f"{RED}Por favor, ingrese un número válido para la altura.{RESET}")
+
+                            while True:
+                                try:
+                                    peso = int(input(f"{BLUE}Ingrese su peso (kilogramos): {RESET}"))
+                                    if peso >= 1:
+                                        break
+                                    else:
+                                        print(f"{RED}Por favor, ingrese un peso válido (mayor o igual a 1 kg).{RESET}")
+                                except ValueError:
+                                    print(f"{RED}Por favor, ingrese un número válido para el peso.{RESET}")
+
+                            imc = round(peso / (altura ** 2) * 10000, 1)
+                            visitas = 1
+
+                            if edad < 2:
+                                categoria = "Sin categoria"
+                                print(f"{RED}El IMC para niños menores de 2 años no se calcula de la misma manera.{RESET}")
+                                print(f"{RED}Por favor, consulte a un profesional de la salud.{RESET}")
+                                imc = "No tiene ya que es menor a dos años"
+                            elif 2 <= edad < 6:
+                                if imc < 14:
+                                    categoria = "Bajo peso"
+                                elif 14 <= imc < 18:
+                                    categoria = "Normal"
+                                elif 18 <= imc < 21:
+                                    categoria = "Sobrepeso"
+                                else:
+                                    categoria = "Obesidad"
+                            elif 6 <= edad < 11:
+                                if imc < 13:
+                                    categoria = "Bajo peso"
+                                elif 13 <= imc < 18:
+                                    categoria = "Normal"
+                                elif 18 <= imc < 21:
+                                    categoria = "Sobrepeso"
+                                else:
+                                    categoria = "Obesidad"
+                            elif 11 <= edad < 18:
+                                if imc < 15:
+                                    categoria = "Bajo peso"
+                                elif 15 <= imc < 20:
+                                    categoria = "Normal"
+                                elif 20 <= imc < 25:
+                                    categoria = "Sobrepeso"
+                                else:
+                                    categoria = "Obesidad"
+                            else:
+                                if imc < 18.5:
+                                    categoria = "Bajo peso"
+                                elif 18.5 <= imc < 25:
+                                    categoria = "Normal"
+                                elif 25 <= imc < 30:
+                                    categoria = "Sobrepeso"
+                                else:
+                                    categoria = "Obesidad"
+
+                            print(f"IMC: {imc}")
+                            print(f"Categoría: {categoria}")
+
+                            fecha_hora_registro = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                            nuevo_paciente = {
+                                "cedula": cedula,
+                                "nombre": nombre,
+                                "genero": genero,
+                                "edad": edad,
+                                "altura": [altura],
+                                "peso": [peso],
+                                "IMC": [imc],
+                                "visitas": visitas,
+                                "categoria": [categoria],
+                                "fecha": [fecha_hora_registro]
+                            }
+
+                            pacientes["pacientes"].append(nuevo_paciente)
+                            with open("Proyecto/pacientes.json", "w") as file:
+                                json.dump(pacientes, file)
+
+                            print(f"{GREEN}Gracias por su información. {RESET}")
+                            sentinela = False
+                        else:
+                            print(f"{RED}La cédula ingresada ya está registrada. Inténtelo de nuevo.{RESET}")
                     elif menuPacientes == 2:
                         senti = True
                         while senti:
@@ -215,7 +216,7 @@ while True:
                                             print("Campo inválido. Por favor, seleccione un campo válido.")
                                             continue
                                         
-                                        nuevoDato = input(f"Ingrese el nuevo valor para {editarDato}: ")
+                                            
                         
                                         if editarDato in ["edad", "altura", "peso"]:
                                             try:
