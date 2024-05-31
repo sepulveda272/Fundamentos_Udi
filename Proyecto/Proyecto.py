@@ -491,11 +491,15 @@ while True:
                                                 print("{:<15} {:<15} {:<15}".format(paciente['nombre'], alimentacion['alimento'], alimentacion['frecuencia']))
                                                 
                                         elif deportesCategoriaEdad and alimentacionCategoria:
-                                            print("{:<15} {:<15} {:<15} {:<15} {:<15}".format("Paciente", "Deporte", "Frecuencia", "Alimento", "Frecuencia"))
-                                            print("-" * 75)
+                                            print("{:<15} {:<15} {:<15}".format("Paciente", "Deporte", "Frecuencia"))
+                                            print("-" * 45)
                                             for deporte in deportesCategoriaEdad:
-                                                for alimentacion in alimentacionCategoria:
-                                                    print("{:<15} {:<15} {:<15} {:<15} {:<15}".format(paciente['nombre'], deporte['nombre'], deporte['frecuencia'], alimentacion['alimento'], alimentacion['frecuencia']))
+                                                print("{:<15} {:<15} {:<15}".format(paciente['nombre'], deporte['nombre'], deporte['frecuencia']))
+                                            print("")
+                                            print("{:<15} {:<15} {:<15}".format("Paciente","Alimento", "Frecuencia"))
+                                            print("-" * 45)
+                                            for alimentacion in alimentacionCategoria:
+                                                print("{:<15} {:<15} {:<15}".format(paciente['nombre'], alimentacion['alimento'], alimentacion['frecuencia']))
                                                     
                                         else:
                                             print(f"El paciente {paciente['nombre']} con categoría {categoriaPaciente} no tiene recomendaciones registradas para esa categoría y edad.")        
