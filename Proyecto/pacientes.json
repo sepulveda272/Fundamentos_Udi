@@ -2,7 +2,7 @@
     "pacientes": [
         {
             "cedula": 123456789,
-            "nombre": "jdasdas",
+            "nombre": "Maicol",
             "genero": "Hombre",
             "edad": 25,
             "altura": [
@@ -20,6 +20,28 @@
             ],
             "fecha": [
                 "2024-05-28 20:37:48"
+            ]
+        },
+        {
+            "cedula": 1097490279,
+            "nombre": "Juan",
+            "genero": "Hombre",
+            "edad": 19,
+            "altura": [
+                170
+            ],
+            "peso": [
+                59
+            ],
+            "IMC": [
+                20.4
+            ],
+            "visitas": 1,
+            "categoria": [
+                "Normal"
+            ],
+            "fecha": [
+                "2024-06-11 02:14:15"
             ]
         }
     ],
